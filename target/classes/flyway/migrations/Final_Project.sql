@@ -1,6 +1,14 @@
-DELETE FROM customer;
-
 use bakery;
+
+SELECT * FROM customer;
+SELECT * FROM baked_goods;
+SELECT * FROM orders;
+SELECT * FROM order_info; 
+
+DELETE FROM customer;
+DELETE FROM orders;
+
+
 DROP TABLE IF EXISTS order_info;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS baked_goods;
@@ -20,16 +28,14 @@ CREATE TABLE baked_goods(
                     'vanilla cupcakes', 'red velvet cupcakes',
                     'cannoli', 'kanafeh', 'harissa','atayek',
                     'assorted baked goods'),
-    
-    quantity ENUM('Half Dozen','Bakers Dozen','Two Dozen', 'Three Dozen'),
     PRIMARY KEY (baked_goods_id)
 );
 
 CREATE TABLE orders(
     order_number INT AUTO_INCREMENT NOT NULL,
-    order_total decimal(6, 2) NOT NULL,
     customer_name VARCHAR(128) NOT NULL,
     baked_goods_id INT NOT NULL, 
+    quantity ENUM('Half Dozen','Bakers Dozen','Two Dozen', 'Three Dozen'),
     PRIMARY KEY(order_number),
     FOREIGN KEY(customer_name) REFERENCES customer (customer_name) ON DELETE CASCADE,
     FOREIGN KEY(baked_goods_id) REFERENCES baked_goods (baked_goods_id) ON DELETE CASCADE
@@ -44,6 +50,3 @@ CREATE TABLE order_info(
     UNIQUE KEY(order_number, baked_goods_id)
     
 );
-
-insert into customer (customer_name, customer_phoneNum, customer_email) values ('Amier Hajyassin', '3477649090', 'amierhajyassin@aol.com');
-

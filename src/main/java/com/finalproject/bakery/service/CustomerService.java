@@ -3,7 +3,7 @@ package com.finalproject.bakery.service;
 import java.util.List;
 import com.finalproject.bakery.entity.Customer;
 
-public interface CustomerSerivce {
+public interface CustomerService {
 
   
   List<Customer> fetchCustomer(String customer_namePK, 
