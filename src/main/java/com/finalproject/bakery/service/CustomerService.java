@@ -1,12 +1,23 @@
 package com.finalproject.bakery.service;
 
 import java.util.List;
+import java.util.Optional;
 import com.finalproject.bakery.entity.Customer;
 
 public interface CustomerService {
+ 
+  /**
+   * @param customer_namePK
+   * @param customer_phoneNum
+   * @param customer_email
+   * @return
+   */
+   List<Customer> fetchCustomer();
 
-  
-  List<Customer> fetchCustomer(String customer_namePK, 
-              String phone_Num, String customer_email);
-  
+   Optional<Customer> createCustomer(String customer_namePK, String customer_phoneNum,
+      String customer_email);
+
+   Optional<Customer> updateCustomer(String customer_namePK, String customer_phoneNum,
+      String customer_email, String newcustomer_name, String newcustomer_phoneNum,
+      String newcustomer_email);
 }

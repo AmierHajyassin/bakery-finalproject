@@ -10,42 +10,48 @@ import com.finalproject.bakery.entity.Customer;
 import lombok.extern.slf4j.Slf4j;
 
 
-
-
-//CREATE TABLE customer(
-//    customer_name VARCHAR(128) NOT NULL,
-//    customer_phoneNum VARCHAR(10) NOT NULL,
-//    customer_email VARCHAR(128) NOT NULL,
-//    PRIMARY KEY (customer_name)
-//);
-
-
-
-
 @Service
 @Slf4j
-public class BasicCustomerService implements CustomerService{
-  
+public class BasicCustomerService implements CustomerService {
+
   @Autowired
-  public CustomerDao customerDao;
-  
-  
+  private CustomerDao customerDao;
+
+
   @Transactional(readOnly = true)
   @Override
-  public List<Customer> fetchCustomer(String customer_namePK, String customer_phoneNum,
-      String customer_email) {
-    log.info("The fetchCustomer method is called with customer_namePK ={}, customer_phoneNum ={}, customer_email = {}",
-        customer_namePK, customer_phoneNum, customer_email);
-    return customerDao.createCustomer(customer_name, customer_phoneNum, customer_email);
-  }
-  
-  
-  @Override 
-  public Optional<Customer> createCustomer(String customer_namePK, customer_phoneNum, customer_email){
-    log.info("The createCustomer method is called with customer_namePK ={}, customer_phoneNum ={},customer_email = {} "
-          , customer_namePK, customer_phoneNum, customer_email);
-    return customerDao.createCustomers(customer_name, customer_phoneNum, customer_email);
-    
+  public List<Customer> fetchCustomer() {
+
+    return customerDao.fetchCustomer();
   }
 
+
+  public Optional<Customer> createCustomer(String customer_namePK, String customer_phoneNum,
+      String customer_email) {
+
+    log.info(
+        "The createCustomer method is called with customer_namePK={}, customer_phoneNum={}, customer_email={}",
+        customer_namePK, customer_phoneNum, customer_email);
+
+    return customerDao.createCustomer(customer_namePK, customer_phoneNum, customer_email);
+  }
+
+
+  public Optional<Customer> updateCustomer(String customer_namePK, String customer_phoneNum,
+      String customer_email, String newcustomer_name, String newcustomer_phoneNum,
+      String newcustomer_email) {
+
+    log.info(
+        "The updateCustomer method is called with customer_namePK={}, customer_phoneNum={}, customer_email={},"
+            + "newcustomer_namePK={}, newcustomer_phoneNum={}, newcustomer_email={}",
+        customer_namePK, customer_phoneNum, customer_email, newcustomer_name,
+        newcustomer_phoneNum, newcustomer_email);
+
+    return customerDao.updateCustomer(customer_namePK, customer_phoneNum, customer_email,
+        newcustomer_name, newcustomer_phoneNum, newcustomer_email);
+  }
+
+
+
 }
+

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Customer {
 
   private String customer_namePK;
-  private String phone_Num;
+  private String customer_phoneNum;
   private String customer_email;
   
   
