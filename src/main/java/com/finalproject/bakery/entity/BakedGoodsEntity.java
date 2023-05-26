@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class BakedGoodsEntity {
   
   private Long bakedGoodsId;
-  private BakedGoods bakedgoods;
+  private BakedGoods bakedGoods;
 
  
 }

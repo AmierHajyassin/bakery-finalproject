@@ -5,19 +5,15 @@ import java.util.Optional;
 import com.finalproject.bakery.entity.Customer;
 
 public interface CustomerService {
- 
-  /**
-   * @param customer_namePK
-   * @param customer_phoneNum
-   * @param customer_email
-   * @return
-   */
-   List<Customer> fetchCustomer();
 
-   Optional<Customer> createCustomer(String customer_namePK, String customer_phoneNum,
+  
+  List<Customer> fetchCustomer();
+
+  Optional<Customer> createCustomer(String customer_namePK, String customer_phoneNum,
       String customer_email);
 
-   Optional<Customer> updateCustomer(String customer_namePK, String customer_phoneNum,
+  Optional<Customer> updateCustomer(String customer_namePK, String customer_phoneNum,
       String customer_email, String newcustomer_name, String newcustomer_phoneNum,
       String newcustomer_email);
+
 }

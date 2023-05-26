@@ -12,9 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class BasicCustomerService implements CustomerService {
+public class DefaultCustomerService implements CustomerService {
 
-  @Autowired
+  @Autowired 
   private CustomerDao customerDao;
 
 
@@ -30,7 +30,7 @@ public class BasicCustomerService implements CustomerService {
       String customer_email) {
 
     log.info(
-        "The createCustomer method is called with customer_namePK={}, customer_phoneNum={}, customer_email={}",
+        "The createCustomer method is called with customer_namePK = {}, customer_phoneNum = {}, customer_email = {}",
         customer_namePK, customer_phoneNum, customer_email);
 
     return customerDao.createCustomer(customer_namePK, customer_phoneNum, customer_email);
@@ -42,16 +42,12 @@ public class BasicCustomerService implements CustomerService {
       String newcustomer_email) {
 
     log.info(
-        "The updateCustomer method is called with customer_namePK={}, customer_phoneNum={}, customer_email={},"
-            + "newcustomer_namePK={}, newcustomer_phoneNum={}, newcustomer_email={}",
-        customer_namePK, customer_phoneNum, customer_email, newcustomer_name,
-        newcustomer_phoneNum, newcustomer_email);
+        "The updateCustomer method is called with customer_namePK = {}, customer_phoneNum = {}, customer_email = {},"
+            + "newcustomer_name = {}, newcustomer_phoneNum = {}, newcustomer_email = {}",
+        customer_namePK, customer_phoneNum, customer_email, newcustomer_name, newcustomer_phoneNum,
+        newcustomer_email);
 
     return customerDao.updateCustomer(customer_namePK, customer_phoneNum, customer_email,
         newcustomer_name, newcustomer_phoneNum, newcustomer_email);
   }
-
-
-
 }
-

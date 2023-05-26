@@ -130,12 +130,10 @@ public interface CustomerController {
           @RequestParam(required = false)
           String customer_email,
           @RequestParam(required = false)
-          String newcusotmer_namePK,
+          String newcusotmer_name,
           @RequestParam(required = false)
           String newcustomer_phoneNum,
           @RequestParam(required = false)
           String newcustomer_email);
-      
-
- 
-}     
+    
+}

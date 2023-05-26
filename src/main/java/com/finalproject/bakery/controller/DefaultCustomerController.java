@@ -26,7 +26,7 @@ public class DefaultCustomerController implements CustomerController {
   @Override
   public Optional<Customer> createCustomer(String customer_namePK, 
         String customer_phoneNum, String customer_email){
-  log.info("cusotmer_namePK={}, customer_phoneNum={}, customer_email={}", customer_namePK, 
+  log.info("cusotmer_namePK = {}, customer_phoneNum = {}, customer_email = {}", customer_namePK, 
       customer_phoneNum,  customer_email);
   
   return customerService.createCustomer(customer_namePK, customer_phoneNum, customer_email);
@@ -36,13 +36,18 @@ public class DefaultCustomerController implements CustomerController {
    public Optional<Customer> updateCustomer(String customer_namePK, String customer_phoneNum, String customer_email,
       String newcustomer_name, String newcustomer_phoneNum, String newcustomer_email ){
 
-log.info("customer_namePK={}, customer_phoneNum={}, customer_email={},"
-    + "newcustomer_name={}, newcustomer_phoneNum={}, newcustomer_email={}", customer_namePK, customer_phoneNum, customer_email,
+log.info("customer_namePK = {}, customer_phoneNum = {}, customer_email = {},"
+    + "newcustomer_name = {}, newcustomer_phoneNum = {}, newcustomer_email = {}", customer_namePK, customer_phoneNum, customer_email,
     newcustomer_name, newcustomer_phoneNum, newcustomer_email );
 
       return customerService.updateCustomer(customer_namePK, customer_phoneNum, customer_email,
-          newcustomer_email, newcustomer_phoneNum, newcustomer_email);
+          newcustomer_name, newcustomer_phoneNum, newcustomer_email);
   }
+  
+  
+  
 
 
-  }
+  
+  
+}

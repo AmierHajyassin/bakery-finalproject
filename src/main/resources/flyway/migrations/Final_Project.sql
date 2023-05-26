@@ -27,7 +27,7 @@ CREATE TABLE baked_goods(
     baked_goods_id INT AUTO_INCREMENT NOT NULL,
     baked_goods ENUM('baklava','chocolate cupcakes',
                     'vanilla cupcakes', 'red velvet cupcakes',
-                    'cannoli', 'kanafeh', 'harissa','atayek',
+                    'cannoli', 'kanafeh', 'harissa','qatayef',
                     'assorted baked goods'),
     PRIMARY KEY (baked_goods_id)
 );
