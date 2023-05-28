@@ -8,7 +8,6 @@ public interface BakedGoodsEntityDao {
 
   List<BakedGoodsEntity> fetchBakedGoodsEntity();
 
-  
 
 
 }

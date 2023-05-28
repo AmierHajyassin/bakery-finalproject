@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,7 +27,7 @@ import io.swagger.v3.oas.annotations.Parameter;
     @Server(url = "http://localhost:8080", description = "Local server.")})
 
 public interface CustomerController {
-  //formatter:off
+  //@formatter:off
   @Operation(
       summary = "Retruns a list of customers",
       description = "Returns a list of customers with a given customer id ",
@@ -44,7 +45,8 @@ public interface CustomerController {
           @ApiResponse(
               responseCode = "404", 
               description = "No customers were found with the input criteria.", 
-              content = @Content(mediaType = "application/json")), //404 not found
+              content = @Content(
+                  mediaType = "application/json")), //404 not found
           @ApiResponse(
               responseCode = "500", 
               description = "An unplanned error occurred", 
@@ -90,7 +92,7 @@ public interface CustomerController {
     @ResponseStatus(code = HttpStatus.CREATED)
     Optional<Customer> createCustomer(
         @RequestParam(required = false)
-        String customer_namePK,
+        String customer_name,
         @RequestParam(required = false)
         String customer_phoneNum,
         @RequestParam(required = false)
@@ -124,7 +126,7 @@ public interface CustomerController {
       @ResponseStatus(code = HttpStatus.OK)
       Optional<Customer> updateCustomer(
           @RequestParam(required = false)
-          String customer_namePK,
+          String customer_name,
           @RequestParam(required = false)
           String customer_phoneNum,
           @RequestParam(required = false)
@@ -136,4 +138,46 @@ public interface CustomerController {
           @RequestParam(required = false)
           String newcustomer_email);
     
+  
+  @Operation(
+      
+      summary = "Deletes a customer",
+      description = "Delete a customer given a required customer info.",
+      responses = {
+          @ApiResponse(
+              responseCode = "200",
+              description = "A customer is deleted! ",
+              content = @Content(
+                  mediaType = "appliction/json",
+              schema = @Schema(implementation = Customer.class))),
+          @ApiResponse(
+              responseCode = "400", 
+              description = "The request parameters are invalid.", 
+              content = @Content(
+                  mediaType = "application/json")),
+          @ApiResponse(
+              responseCode = "404", 
+              description = "No customers were found with the input criteria.", 
+              content = @Content(
+                  mediaType = "application/json")),
+          @ApiResponse(
+              responseCode = "500", 
+              description = "An unplanned error occurred.", 
+              content = @Content(
+                  mediaType = "application/json"))
+      })
+  
+  @DeleteMapping
+  @ResponseStatus(code = HttpStatus.OK)
+  Optional<Customer> deleteCustomer(
+      @RequestParam(required = false)
+      String customer_name,
+      @RequestParam(required = false)
+      String customer_phoneNum,
+      @RequestParam(required = false)
+      String customer_email
+      
+      );
+  
+
 }

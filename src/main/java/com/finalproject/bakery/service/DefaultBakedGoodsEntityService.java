@@ -22,9 +22,4 @@ public class DefaultBakedGoodsEntityService implements BakedGoodsEntityService {
     
     return  bakedGoodsEntityDao.fetchBakedGoodsEntity();
   }
-  
-
-        
-  
-
 }

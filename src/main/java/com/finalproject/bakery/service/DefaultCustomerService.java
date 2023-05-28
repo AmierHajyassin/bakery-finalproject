@@ -26,28 +26,35 @@ public class DefaultCustomerService implements CustomerService {
   }
 
 
-  public Optional<Customer> createCustomer(String customer_namePK, String customer_phoneNum,
+  public Optional<Customer> createCustomer(String customer_name, String customer_phoneNum,
       String customer_email) {
 
     log.info(
-        "The createCustomer method is called with customer_namePK = {}, customer_phoneNum = {}, customer_email = {}",
-        customer_namePK, customer_phoneNum, customer_email);
+        "The createCustomer method is called with customer_name = {}, customer_phoneNum = {}, customer_email = {}",
+        customer_name, customer_phoneNum, customer_email);
 
-    return customerDao.createCustomer(customer_namePK, customer_phoneNum, customer_email);
+    return customerDao.createCustomer(customer_name, customer_phoneNum, customer_email);
   }
 
 
-  public Optional<Customer> updateCustomer(String customer_namePK, String customer_phoneNum,
+  public Optional<Customer> updateCustomer(String customer_name, String customer_phoneNum,
       String customer_email, String newcustomer_name, String newcustomer_phoneNum,
       String newcustomer_email) {
 
     log.info(
-        "The updateCustomer method is called with customer_namePK = {}, customer_phoneNum = {}, customer_email = {},"
+        "The updateCustomer method is called with customer_name = {}, customer_phoneNum = {}, customer_email = {},"
             + "newcustomer_name = {}, newcustomer_phoneNum = {}, newcustomer_email = {}",
-        customer_namePK, customer_phoneNum, customer_email, newcustomer_name, newcustomer_phoneNum,
+        customer_name, customer_phoneNum, customer_email, newcustomer_name, newcustomer_phoneNum,
         newcustomer_email);
 
-    return customerDao.updateCustomer(customer_namePK, customer_phoneNum, customer_email,
+    return customerDao.updateCustomer(customer_name, customer_phoneNum, customer_email,
         newcustomer_name, newcustomer_phoneNum, newcustomer_email);
+  }
+
+
+  @Override
+  public Optional<Customer> deleteCustomer(String customer_name, String customer_phoneNum, String customer_email) {
+      log.info("cusotmer_name = {}, customer_phoneNum = {}, customer_email = {}", customer_name, customer_phoneNum,  customer_email);
+    return customerDao.deleteCustomer(customer_name, customer_phoneNum, customer_email);
   }
 }

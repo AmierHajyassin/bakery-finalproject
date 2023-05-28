@@ -6,14 +6,18 @@ import com.finalproject.bakery.entity.Customer;
 
 public interface CustomerService {
 
-  
+
   List<Customer> fetchCustomer();
 
-  Optional<Customer> createCustomer(String customer_namePK, String customer_phoneNum,
+  Optional<Customer> createCustomer(String customer_name, String customer_phoneNum,
       String customer_email);
 
-  Optional<Customer> updateCustomer(String customer_namePK, String customer_phoneNum,
+  Optional<Customer> updateCustomer(String customer_name, String customer_phoneNum,
       String customer_email, String newcustomer_name, String newcustomer_phoneNum,
       String newcustomer_email);
+
+
+  Optional<Customer> deleteCustomer(String customer_name, String customer_phoneNum,
+      String customer_email);
 
 }
