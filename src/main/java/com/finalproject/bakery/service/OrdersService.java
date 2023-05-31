@@ -5,7 +5,6 @@ import com.finalproject.bakery.entity.Orders;
 
 public interface OrdersService {
 
- 
   List<Orders> fetchOrders();
 
 }

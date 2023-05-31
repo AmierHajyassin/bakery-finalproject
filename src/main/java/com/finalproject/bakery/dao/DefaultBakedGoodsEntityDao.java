@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 import com.finalproject.bakery.entity.BakedGoods;
 import com.finalproject.bakery.entity.BakedGoodsEntity;
-import com.finalproject.bakery.entity.Customer;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -22,8 +21,8 @@ public class DefaultBakedGoodsEntityDao implements BakedGoodsEntityDao {
   @Override
   public List<BakedGoodsEntity> fetchBakedGoodsEntity() {
     log.info("DAO: fetch Baked Goods ");
-
     //@formatter:off
+    
         String sql= ""
             +"SELECT * "
             +" FROM baked_goods ";
@@ -36,11 +35,7 @@ public class DefaultBakedGoodsEntityDao implements BakedGoodsEntityDao {
               .bakedGoodsId(rs.getLong("baked_goods_id"))
               .bakedGoods(BakedGoods.valueOf(rs.getString("baked_goods")))
               .build();
-              
-              
-
       }
     });
-
   }
 }

@@ -16,7 +16,9 @@ public class OrderInfo {
   
   private Long orderPK;// orderPK == order_number in sql file
   private Long bakedGoodsId;
-  private BigDecimal total;
   private OrderStatus orderStatus; 
+  private BigDecimal total;
+  
+
   
 }

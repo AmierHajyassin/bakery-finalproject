@@ -6,7 +6,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import com.finalproject.bakery.entity.BakedGoodsEntity;
+import com.finalproject.bakery.entity.OrderInfo;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -16,23 +16,24 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.servers.Server;
 
 @Validated
-@RequestMapping("/Baked Goods")
-@OpenAPIDefinition(info = @Info(title = "Bakery Services"),
-    servers = {@Server(
-    url = "http://localhost:8080", 
-    description = "Local server.")})
+@RequestMapping("/Order Info")
+@OpenAPIDefinition(info = @Info(title = "Order Info Service"),
+      servers = {@Server(
+       url = "http://localhost:8080",
+       description = "Local server." )})
 
-public interface BakedGoodsEntityController {
-  // @formatter:off
+public interface OrderInfoController {
+  //@formatter:off
+  
   @Operation(
-      summary = "Retruns a list of Baked Goods",
-      description = "Returns a list of Baked Goods with a given parameters ",
+      summary = "Returns a list of Order Information ",
+      description = "Returns a list of Order Information with given parameters",
       responses = {
           @ApiResponse(
-              responseCode = "200", 
-              description = "A list of Baked Goods is returned",
+              responseCode = "200",
+              description = "A list of Order Information is returned",
               content = @Content(mediaType = "application/json",
-                  schema = @Schema(implementation = BakedGoodsEntity.class))), // 200 is an okay                                                              // status
+                schema = @Schema(implementation = OrderInfo.class))),
           @ApiResponse(
               responseCode = "400", 
               description = "The request paramaters are invalid",
@@ -45,10 +46,13 @@ public interface BakedGoodsEntityController {
               responseCode = "500", 
               description = "An unplanned error occurred",
               content = @Content(mediaType = "application/json")) // 500 is an unplanned exception
-      })
-
+})
+  
+  
   @GetMapping
   @ResponseStatus(code = HttpStatus.OK)
-  List<BakedGoodsEntity> fetchBakedGoodsEntity();
+  
+      List<OrderInfo> fetchOrderInfo();
+  
 
 }
