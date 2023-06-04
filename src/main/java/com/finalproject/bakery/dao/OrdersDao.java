@@ -5,7 +5,7 @@ import com.finalproject.bakery.entity.Orders;
 
 
 public interface OrdersDao {
-  
+
   List<Orders> fetchOrders();
 
 }

@@ -1,12 +1,16 @@
 package com.finalproject.bakery.controller;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import com.finalproject.bakery.entity.BakedGoodsEntity;
+import com.finalproject.bakery.entity.Customer;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -50,5 +54,4 @@ public interface BakedGoodsEntityController {
   @GetMapping
   @ResponseStatus(code = HttpStatus.OK)
   List<BakedGoodsEntity> fetchBakedGoodsEntity();
-
 }

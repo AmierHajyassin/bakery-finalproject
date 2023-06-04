@@ -8,17 +8,17 @@ import com.finalproject.bakery.dao.OrdersDao;
 import com.finalproject.bakery.entity.Orders;
 import lombok.extern.slf4j.Slf4j;
 
-
 @Service
 @Slf4j
-public class DefaultOrdersService {
-
+public class DefaultOrdersService implements OrdersService {
+  
   @Autowired
-  private OrdersDao ordersDao;
+   private OrdersDao ordersDao;
 
-  @Transactional(readOnly = true)
-  public List<Orders> fetchOrders() {
-
-    return ordersDao.fetchOrders();
+    @Transactional(readOnly = true)
+    @Override
+    public List<Orders> fetchOrders() {
+      return ordersDao.fetchOrders();
   }
+
 }

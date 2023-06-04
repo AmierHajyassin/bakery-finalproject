@@ -3,6 +3,9 @@ package com.finalproject.bakery.entity;
 
 public enum Quantity {
  
-    HALFDOZEN, BAKERSDOZEN, TWODOZEN, THREEDOZEN
+  HalfDozen, 
+  BakersDozen,
+  TwoDozen, 
+  ThreeDozen
 
 }

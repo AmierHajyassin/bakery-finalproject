@@ -19,12 +19,14 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.servers.Server;
-import io.swagger.v3.oas.annotations.Parameter;
+
 
 @Validated 
 @RequestMapping("/Customer")
-@OpenAPIDefinition(info = @Info(title = "Bakery"), servers = {
-    @Server(url = "http://localhost:8080", description = "Local server.")})
+@OpenAPIDefinition(info = @Info(title = "Bakery"), 
+    servers = {@Server(
+    url = "http://localhost:8080", 
+    description = "Local server.")})
 
 public interface CustomerController {
   //@formatter:off
@@ -132,7 +134,7 @@ public interface CustomerController {
           @RequestParam(required = false)
           String customer_email,
           @RequestParam(required = false)
-          String newcusotmer_name,
+          String newcustosmer_name,
           @RequestParam(required = false)
           String newcustomer_phoneNum,
           @RequestParam(required = false)

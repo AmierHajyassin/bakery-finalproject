@@ -19,7 +19,7 @@ public class DefaultOrdersDao implements OrdersDao {
   @Autowired
   private NamedParameterJdbcTemplate jdbcTemplate;
 
-  @Override
+  
   public List<Orders> fetchOrders() {
     log.info("DAO: fetch Orders ");
     //@formatter:off
@@ -30,9 +30,10 @@ public class DefaultOrdersDao implements OrdersDao {
     return jdbcTemplate.query(sql, new RowMapper<>() {
       @Override
       public Orders mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return Orders.builder().orderPK(rs.getLong("order_number"))
+        return Orders.builder()
+            .orderPK(rs.getLong("order_number"))
             .customer_name(rs.getString("customer_name"))
-            .bakedGoods(BakedGoods.valueOf(rs.getString("baked_goods")))
+            .bakedGoodsId(rs.getLong("baked_goods_id"))
             .quantity(Quantity.valueOf(rs.getString("quantity")))
             .build();
       }

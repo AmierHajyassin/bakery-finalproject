@@ -24,14 +24,13 @@ import io.swagger.v3.oas.annotations.servers.Server;
 
 public interface OrderInfoController {
   //@formatter:off
-  
   @Operation(
-      summary = "Returns a list of Order Information ",
+      summary = "Returns a list of Order Info ",
       description = "Returns a list of Order Information with given parameters",
       responses = {
           @ApiResponse(
               responseCode = "200",
-              description = "A list of Order Information is returned",
+              description = "A list of Order Info is returned",
               content = @Content(mediaType = "application/json",
                 schema = @Schema(implementation = OrderInfo.class))),
           @ApiResponse(
@@ -48,11 +47,8 @@ public interface OrderInfoController {
               content = @Content(mediaType = "application/json")) // 500 is an unplanned exception
 })
   
-  
   @GetMapping
   @ResponseStatus(code = HttpStatus.OK)
-  
-      List<OrderInfo> fetchOrderInfo();
-  
+   List<OrderInfo> fetchOrderInfo();
 
 }

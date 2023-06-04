@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Orders {
   
-  private long orderPK;
+  private Long orderPK;
   private String customer_name; 
-  private BakedGoods bakedGoods;
+  private Long bakedGoodsId;
   private Quantity quantity;
 
 }

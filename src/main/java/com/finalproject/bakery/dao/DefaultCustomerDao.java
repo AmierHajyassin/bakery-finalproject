@@ -130,9 +130,7 @@ public class DefaultCustomerDao implements CustomerDao {
         .customer_name(customer_name)
         .customer_phoneNum(customer_phoneNum)
         .customer_email(customer_email)
-        .build()
-        
-        );
+        .build());
   }
 
 }

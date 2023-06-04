@@ -15,6 +15,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.servers.Server;
 
+
+
+
+
+
+
 @Validated
 @RequestMapping("/Orders")
 @OpenAPIDefinition(info = @Info(title = "Orders service"), 
@@ -26,7 +32,7 @@ public interface OrdersController {
   //@formatter:off
    @Operation(
        summary = "Returns a list of Orders",
-       description = "A list of Orders is return with given parameters",
+       description = "A list of Orders is return with given parameters", 
        responses = {
            @ApiResponse(
                responseCode = "200",
@@ -46,19 +52,10 @@ public interface OrdersController {
                description = "An unplanned error occurred",
                content = @Content(mediaType = "application/json")) // 500 is an unplanned exception
        })
-               
-       
-       @GetMapping
-       @ResponseStatus(code = HttpStatus.OK)
-       List<Orders> fetchOrders();
-       
-       
-       
-       
-       
-       
-  
+     
+ @GetMapping
+ @ResponseStatus(code = HttpStatus.OK)
    
-   
+ List<Orders> fetchOrders();
 
 }

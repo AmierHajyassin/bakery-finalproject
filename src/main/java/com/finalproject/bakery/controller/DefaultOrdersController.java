@@ -11,17 +11,12 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Slf4j
 public class DefaultOrdersController implements OrdersController {
-  
-  
-  
+   
   @Autowired 
   private OrdersService ordersService;
   
-  public List<Orders> fetchOrders(){
+ public List<Orders> fetchOrders(){
     return ordersService.fetchOrders();
-  }
-  
-  
-  
+ }
 
 }
