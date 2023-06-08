@@ -150,7 +150,7 @@ public interface CustomerController {
               responseCode = "200",
               description = "A customer is deleted! ",
               content = @Content(
-                  mediaType = "appliction/json",
+                  mediaType = "application/json",
               schema = @Schema(implementation = Customer.class))),
           @ApiResponse(
               responseCode = "400", 

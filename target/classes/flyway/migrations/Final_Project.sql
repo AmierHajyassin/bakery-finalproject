@@ -46,7 +46,7 @@ CREATE TABLE order_info(
 	order_number INT AUTO_INCREMENT NOT NULL,
 	baked_goods_id INT NOT NULL,
     total decimal(4, 2) NOT NULL,
- 	order_status enum('ORDERRECEIVED','INTHEOVEN', 'READYFORPICKUP'),
+ 	order_status enum('OrderReceived','InTheOven', 'ReadyForPickUp'),
     FOREIGN KEY(baked_goods_id) REFERENCES baked_goods (baked_goods_id) ON DELETE CASCADE,
     FOREIGN KEY(order_number) REFERENCES orders (order_number) ON DELETE CASCADE,
     UNIQUE KEY(order_number, baked_goods_id)
@@ -86,18 +86,22 @@ INSERT into orders(customer_name, baked_goods_id, quantity) values ('Anna Jonhso
 INSERT into orders(customer_name, baked_goods_id, quantity) values ('Anthony Davis',     '5',  'HalfDozen');
 INSERT into orders(customer_name, baked_goods_id, quantity) values ('Michael Kay',       '4',  'BakersDozen');
 
-INSERT into order_info (baked_goods_id, order_status, total) values('8', 'INTHEOVEN',       '24.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('6', 'READYFORPICKUP',  '12.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('3', 'INTHEOVEN',       '71.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('7', 'ORDERRECEIVED',    '24.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('2', 'READYFORPICKUP',  '24.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('9', 'ORDERRECEIVED',    '48.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('4', 'INTHEOVEN',       '48.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('1', 'READYFORPICKUP',  '24.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('5', 'ORDERRECEIVED',    '12.99');
-INSERT into order_info (baked_goods_id, order_status, total) values('4', 'READYFORPICKUP',  '24.99');
+
+
+SELECT * FROM orders RIGHT JOIN baked_goods ON baked_goods.baked_goods_id;
 
 
 
+INSERT into order_info (baked_goods_id, order_status, total) values('8', 'InTheOven',       '24.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('6', 'ReadyForPickUp',  '12.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('3', 'InTheOven',       '71.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('7', 'OrderReceived',    '24.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('2', 'ReadyForPickUp',  '24.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('9', 'OrderReceived',    '48.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('4', 'InTheOven',       '48.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('1', 'ReadyForPickUp',  '24.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('5', 'OrderReceived',    '12.99');
+INSERT into order_info (baked_goods_id, order_status, total) values('4', 'ReadyForPickUp',  '24.99');
 
 
+/*WHERE orders.baked_goods_id = baked_goods.baked_goods_id*/
