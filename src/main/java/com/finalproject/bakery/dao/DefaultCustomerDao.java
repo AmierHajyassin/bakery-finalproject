@@ -76,7 +76,7 @@ public class DefaultCustomerDao implements CustomerDao {
       String customer_email, String newcustomer_name, String newcustomer_phoneNum,
       String newcustomer_email) {
 
-    log.info("DAO: customer_name= {}, customer_phoneNum= {}, customer_emai = {}, "
+    log.info("DAO: customer_name= {}, customer_phoneNum= {}, customer_email= {}, "
             + "newcustomer_name= {}, newcustomer_phoneNum= {}, newcustomer_email= {}",
         customer_name, customer_phoneNum, customer_email, newcustomer_name, newcustomer_phoneNum,
         newcustomer_email);

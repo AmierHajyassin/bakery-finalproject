@@ -134,7 +134,7 @@ public interface CustomerController {
           @RequestParam(required = false)
           String customer_email,
           @RequestParam(required = false)
-          String newcustosmer_name,
+          String newcustomer_name,
           @RequestParam(required = false)
           String newcustomer_phoneNum,
           @RequestParam(required = false)
