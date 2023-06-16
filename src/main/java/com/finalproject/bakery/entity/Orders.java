@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Orders {
   
   private Long orderPK;
-  private String customer_name; 
+  private int customer_id; 
   private Long bakedGoodsId;
   private Quantity quantity;
 

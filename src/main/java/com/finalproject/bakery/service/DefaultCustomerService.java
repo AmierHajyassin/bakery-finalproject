@@ -42,7 +42,7 @@ public class DefaultCustomerService implements CustomerService {
       String newcustomer_email) {
 
     log.info(
-        "The updateCustomer method is called with customer_name = {}, customer_phoneNum = {}, customer_email = {},"
+        "The updateCustomer method is called with customer_name= {}, customer_phoneNum= {}, customer_email= {},"
             + "newcustomer_name = {}, newcustomer_phoneNum = {}, newcustomer_email = {}",
         customer_name, customer_phoneNum, customer_email, newcustomer_name, newcustomer_phoneNum,
         newcustomer_email);

@@ -57,34 +57,5 @@ public interface BakedGoodsEntityController {
   List<BakedGoodsEntity> fetchBakedGoodsEntity();
   
   
-//  @Operation(
-//      summary = "Retruns a list of Baked Goods",
-//      description = "Returns a list of Baked Goods with a given parameters ",
-//      responses = {
-//          @ApiResponse(
-//              responseCode = "200", 
-//              description = "A list of Baked Goods is returned",
-//              content = @Content(mediaType = "application/json",
-//                  schema = @Schema(implementation = BakedGoodsEntity.class))), // 200 is an okay                                                              // status
-//          @ApiResponse(
-//              responseCode = "400", 
-//              description = "The request paramaters are invalid",
-//              content = @Content(mediaType = "application/json")), // 400 is a bad input
-//          @ApiResponse(
-//              responseCode = "404",
-//              description = "No customers were found with the input criteria.",
-//              content = @Content(mediaType = "application/json")), // 404 not found
-//          @ApiResponse(
-//              responseCode = "500", 
-//              description = "An unplanned error occurred",
-//              content = @Content(mediaType = "application/json")) // 500 is an unplanned exception
-//      })
-//  
-//  @PostMapping
-//  @ResponseStatus(code = HttpStatus.CREATED)
-//  Optional<BakedGoodsEntity> createBakedGoodsEntity(
-//      @RequestParam(required = false)
-//      BakedGoods bakedGoods
-//      );
   
 }

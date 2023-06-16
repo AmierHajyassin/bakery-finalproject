@@ -10,7 +10,6 @@ public interface BakedGoodsEntityService {
     List<BakedGoodsEntity> fetchBakedGoodsEntity();
 
 
-    //Optional<BakedGoodsEntity> updateBakedGoodsEntity(BakedGoods bakedGoods);
 
  
 }

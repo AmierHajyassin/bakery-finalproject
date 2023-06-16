@@ -32,7 +32,7 @@ public class DefaultOrdersDao implements OrdersDao {
       public Orders mapRow(ResultSet rs, int rowNum) throws SQLException {
         return Orders.builder()
             .orderPK(rs.getLong("order_number"))
-            .customer_name(rs.getString("customer_name"))
+            .customer_id(rs.getInt("customer_id"))
             .bakedGoodsId(rs.getLong("baked_goods_id"))
             .quantity(Quantity.valueOf(rs.getString("quantity")))
             .build();

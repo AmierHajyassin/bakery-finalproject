@@ -17,10 +17,11 @@ DROP TABLE IF EXISTS customer;
 
 
 CREATE TABLE customer(
+	customer_id INT AUTO_INCREMENT NOT NULL,
     customer_name VARCHAR(128) NOT NULL,
     customer_phoneNum VARCHAR(10) NOT NULL,
     customer_email VARCHAR(128) NOT NULL,
-    PRIMARY KEY (customer_name)
+    PRIMARY KEY (customer_id)
 );
 
 CREATE TABLE baked_goods(
@@ -34,11 +35,11 @@ CREATE TABLE baked_goods(
 
 CREATE TABLE orders(
 	order_number INT AUTO_INCREMENT NOT NULL,
-    customer_name VARCHAR(128) NOT NULL,
+    customer_id INT NOT NULL,
     baked_goods_id INT NOT NULL,
     quantity ENUM('HalfDozen','BakersDozen','TwoDozen', 'ThreeDozen'),
     PRIMARY KEY(order_number),
-    FOREIGN KEY(customer_name) REFERENCES customer (customer_name) ON DELETE CASCADE,
+    FOREIGN KEY(customer_id) REFERENCES customer (customer_id) ON DELETE CASCADE,
     FOREIGN KEY(baked_goods_id) REFERENCES baked_goods (baked_goods_id) ON DELETE CASCADE
 );
 
@@ -75,22 +76,16 @@ INSERT into baked_goods (baked_goods) values ('harissa');
 INSERT into baked_goods (baked_goods) values ('qatayef');
 INSERT into baked_goods (baked_goods) values ('assortedbakedgoods');
 
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Amany Hajyassin',   '8',  'BakersDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Amjad Hajyassin',   '6',  'HalfDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Ameen Hajyassin',   '3',  'ThreeDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Amier Hajyassin',   '7',  'BakersDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Randa Marie',       '2',  'BakersDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Joe Blaine',        '9',  'TwoDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Moe Marie',         '4',  'TwoDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Anna Jonhson',	     '1',  'BakersDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Anthony Davis',     '5',  'HalfDozen');
-INSERT into orders(customer_name, baked_goods_id, quantity) values ('Michael Kay',       '4',  'BakersDozen');
-
-
-
-SELECT * FROM orders RIGHT JOIN baked_goods ON baked_goods.baked_goods_id;
-
-
+INSERT into orders(customer_id, baked_goods_id, quantity) values (1,  '8',  'BakersDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (2,  '6',  'HalfDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (3,  '3',  'ThreeDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (4,  '7',  'BakersDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (5,  '2',  'BakersDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (6,  '9',  'TwoDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (7,  '4',  'TwoDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (8,  '1',  'BakersDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (9,  '5',  'HalfDozen');
+INSERT into orders(customer_id, baked_goods_id, quantity) values (10, '4',  'BakersDozen');
 
 INSERT into order_info (baked_goods_id, order_status, total) values('8', 'InTheOven',       '24.99');
 INSERT into order_info (baked_goods_id, order_status, total) values('6', 'ReadyForPickUp',  '12.99');
@@ -102,6 +97,3 @@ INSERT into order_info (baked_goods_id, order_status, total) values('4', 'InTheO
 INSERT into order_info (baked_goods_id, order_status, total) values('1', 'ReadyForPickUp',  '24.99');
 INSERT into order_info (baked_goods_id, order_status, total) values('5', 'OrderReceived',    '12.99');
 INSERT into order_info (baked_goods_id, order_status, total) values('4', 'ReadyForPickUp',  '24.99');
-
-
-/*WHERE orders.baked_goods_id = baked_goods.baked_goods_id*/

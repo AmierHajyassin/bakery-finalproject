@@ -15,12 +15,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.servers.Server;
 
-
-
-
-
-
-
 @Validated
 @RequestMapping("/Orders")
 @OpenAPIDefinition(info = @Info(title = "Orders service"), 
