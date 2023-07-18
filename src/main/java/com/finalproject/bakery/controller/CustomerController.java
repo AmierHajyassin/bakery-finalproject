@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 public interface CustomerController {
   //@formatter:off
   @Operation(
-      summary = "Retruns a list of customers",
+      summary = "Retruns a list of customers", // displays a list of Customers
       description = "Returns a list of customers with a given customer id ",
       responses = {
           @ApiResponse(
